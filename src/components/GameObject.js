@@ -1,25 +1,36 @@
-// src/components/GameObject.js
+// components/GameObject.js
 import React from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 
-const SIZE = 40;
+const GameObject = ({ x, y, size, imageSource, style }) => {
+    const isSizeObject = typeof size === 'object';
+    const width = isSizeObject ? size.width : size;
+    const height = isSizeObject ? size.height : size;
 
-export default function GameObject({ x, y, color = 'gray', size = SIZE }) {
-  // Garante que a posição é 'absolute' e calculada a partir do canto superior esquerdo
-  const style = {
-    left: x - size / 2,
-    top: y - size / 2,
-    width: size,
-    height: size,
-    backgroundColor: color,
-  };
-
-  return <View style={[styles.base, style]} />;
-}
+    return (
+        <View 
+            style={[
+                styles.gameObject, 
+                { left: x - width / 2, top: y - height / 2, width: width, height: height },
+                style // ⭐ Adiciona o estilo aqui ⭐
+            ]}
+        >
+            <Image source={imageSource} style={styles.image} resizeMode="contain" />
+        </View>
+    );
+};
 
 const styles = StyleSheet.create({
-  base: {
-    position: 'absolute',
-    borderRadius: 5, // Um pequeno arredondamento para dar um toque
-  },
+    gameObject: {
+        position: 'absolute',
+        justifyContent: 'center',
+        alignItems: 'center',
+        // Outros estilos padrão do GameObject, se houver
+    },
+    image: {
+        width: '100%',
+        height: '100%',
+    },
 });
+
+export default GameObject;
