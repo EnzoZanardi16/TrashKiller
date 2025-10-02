@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "RecycleHero",
+    "slug": "RecycleHero",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/RecycleHero.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/RecycleHero.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/RecycleHero.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-asset"
+    ]
+  }
+}
